@@ -1,11 +1,12 @@
 <div class="invoices-container container">
   <h2>Invoices</h2>
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-6">
+      <label class="lbl-block">Date sort</label>
       <button onclick={{action "sortByASC"}}>Date ASC</button>
   	  <button onclick={{action "sortByDESC"}}>Date DESC</button>  	
     </div>
-    <div class="col-md-12">
+    <div class="col-md-6">
       {{
         date-range-picker
         label='Filter By Date'
