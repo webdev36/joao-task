@@ -1,0 +1,35 @@
+<div class="invoices-container container">
+  <h2>Invoices</h2>
+  <div class="row">
+    <div class="col-md-12">
+      <button onclick={{action "sortByASC"}}>Date ASC</button>
+  	  <button onclick={{action "sortByDESC"}}>Date DESC</button>  	
+    </div>
+    <div class="col-md-12">
+      {{
+        date-range-picker
+        label='Filter By Date'
+        start="20190401"
+        end="20190531"
+        class= 'col-md-6'
+        applyAction=(action "filter")
+      }}
+    </div>  	
+  </div>
+  <table class="table table-border table-striped">
+    <tr>
+      <td><strong>Amount</strong></td>
+      <td><strong>Date</strong></td>
+      <td colspan="2"><strong>Action</strong></td>
+    </tr>
+	  {{#each invoices as |invoice|}}
+      <tr>
+        <td>{{invoice.amount}}</td>
+        <td>{{moment-format invoice.date 'MM-DD-YYYY'}}</td>
+        <td>{{#link-to "invoices.edit" invoice class='btn btn-primary btn-small'}}Edit{{/link-to}}</td>
+        <td><button class='btn btn-danger btn-small' onclick={{action "removeItem" invoice.id}}>Remove</button></td>
+      </tr>
+	  {{/each}}
+</table>
+	<h3>Total Aount: {{total_amount}}</h3>
+</div>

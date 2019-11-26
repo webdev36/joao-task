@@ -1,0 +1,25 @@
+<div>
+	<form {{action "save" model on='submit'}} class="form-horizontal">
+    <div class="form-content">
+      <div class="form-group">
+        <label class="control-label">Amount</label>
+        {{input 
+			    value=model.amount 
+			    class='form-control'
+			  }}
+		 	</div>
+		 	<div class="form-group">
+        <label class="control-label">Date</label>
+        {{input 
+			    value=model.date 
+			    class='form-control'
+			  }}
+		 	</div>
+		 	<div class="form-actions">
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary active">Modify</button>
+        </div>
+      </div>
+		</div>
+	</form>
+</div>
